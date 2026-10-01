@@ -178,6 +178,19 @@ p { margin: 0 0 1em; }
 .fiber-bg {
   background: url("images/fiber-lines.svg") 0 0 / 100% 1600px repeat-y;
 }
+
+/* alternative background (URL ?bg=grid): fine technical grid instead of fiber lines */
+.bg-grid body {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(rgba(22,25,29,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22,25,29,.035) 1px, transparent 1px);
+  background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+  background-attachment: scroll;
+}
+.bg-grid .hero-fibers { display: none; }
+.bg-grid .fiber-bg { background: none; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: .6em;
   font-family: var(--mono); font-size: .8rem; color: var(--ink-soft);
