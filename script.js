@@ -264,7 +264,9 @@
         if (d.x < -5) d.x = W + 5; else if (d.x > W + 5) d.x = -5;
 
         var near = Math.abs(d.y - beamY(d.x)) < 14;
-        d.glow = near ? 1 : Math.max(0, d.glow - 0.006);
+        // soft light-up while in the beam (~1.5 s), slow fade afterwards (~4 s)
+        if (near) d.glow += (1 - d.glow) * 0.03;
+        else d.glow = Math.max(0, d.glow - 0.004);
 
         // base particle
         ctx.beginPath();
@@ -272,19 +274,22 @@
         ctx.fillStyle = d.hot ? accent(0.6) : 'rgba(22,25,29,0.22)';
         ctx.fill();
 
-        // detected particle: pink / cyan highlight with afterglow
-        if (d.glow > 0) {
-          var g = d.glow;
+        // detected particle: gentle pink / cyan glow
+        if (d.glow > 0.002) {
+          var g = d.glow * d.glow * (3 - 2 * d.glow);   // smoothstep easing
+          var halo = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r + 9);
+          halo.addColorStop(0, rgba(d.hl, 0.35 * g));
+          halo.addColorStop(1, rgba(d.hl, 0));
           ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r + 9 * g, 0, Math.PI * 2);
-          ctx.fillStyle = rgba(d.hl, 0.22 * g);
+          ctx.arc(d.x, d.y, d.r + 9, 0, Math.PI * 2);
+          ctx.fillStyle = halo;
           ctx.fill();
           ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r + 1.6 * g, 0, Math.PI * 2);
-          ctx.fillStyle = rgba(d.hl, g);
+          ctx.arc(d.x, d.y, d.r + 0.8 * g, 0, Math.PI * 2);
+          ctx.fillStyle = rgba(d.hl, 0.9 * g);
           ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = accent(0.55 * g);  // thin blue ring keeps cyan visible on white
+          ctx.lineWidth = 0.8;
+          ctx.strokeStyle = accent(0.3 * g);  // faint blue ring keeps cyan visible on white
           ctx.stroke();
         }
       }

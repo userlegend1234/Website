@@ -20,6 +20,8 @@
   /* logo highlight colors – used sparingly (hero animation) */
   --pink-rgb: 254, 96, 189;                    /* #FE60BD */
   --cyan-rgb: 0, 255, 251;                     /* #00FFFB */
+  /* logo pink, darkened for readable text (contrast 4.5:1) – numbers & tags */
+  --pink: #d12e90;
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -41,13 +43,13 @@ body {
   line-height: 1.6;
   color: var(--ink);
   background-color: var(--bg);
-  /* fine technical grid */
+  /* subtle particle dot matrix with soft brand-tinted light */
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px),
-    linear-gradient(rgba(22,25,29,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22,25,29,.035) 1px, transparent 1px);
-  background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+    radial-gradient(circle at 1px 1px, rgba(var(--accent-rgb), 0.13) 1px, transparent 1.4px),
+    radial-gradient(ellipse 60% 45% at 100% 0%, rgba(var(--pink-rgb), 0.06), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 0% 100%, rgba(var(--cyan-rgb), 0.06), transparent 70%);
+  background-size: 26px 26px, 100% 100vh, 100% 100vh;
+  background-attachment: scroll, fixed, fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -182,12 +184,12 @@ p { margin: 0 0 1em; }
   padding: 1rem 1.2rem 0 0;
   font-size: .92rem; color: var(--ink-soft);
 }
-.hero-facts .mono { display: block; color: var(--accent); margin-bottom: .3rem; }
+.hero-facts .mono { display: block; color: var(--pink); font-weight: 500; margin-bottom: .3rem; }
 
 /* ---------- Sections ---------- */
 .section { padding: clamp(80px, 12vw, 150px) 0; position: relative; }
 .section-alt { background: rgba(243, 244, 245, .78); border-block: 1px solid var(--line); }
-.section-tag { color: var(--accent); margin: 0 0 1.2rem; font-size: .8rem; }
+.section-tag { color: var(--pink); margin: 0 0 1.2rem; font-size: .8rem; }
 .section-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; max-width: 22ch; margin-bottom: 3rem; }
 .section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; }
 
@@ -263,11 +265,11 @@ h2 + .prose { margin-top: 1.4rem; }
   background: var(--ink-soft);
   order: -1;
 }
-.part-label .mono { color: var(--gray); }
 .part.labels-on .part-label { opacity: 1; transform: translate(0, -50%); }
 .part.is-current .part-label { color: var(--accent); }
 .part.is-current .part-label::before { background: var(--accent); }
-.part.is-current .part-label .mono { color: var(--accent); }
+.part-label .mono { color: var(--pink); font-weight: 500; }
+.part.is-current .part-label .mono { color: var(--pink); }
 
 .product-text { position: relative; display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 32px 0; }
 .steps { position: relative; min-height: 340px; }
@@ -320,7 +322,7 @@ h2 + .prose { margin-top: 1.4rem; }
   background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .35s;
 }
 .card:hover::after { transform: scaleX(1); }
-.card-code { display: inline-block; font-size: 1rem; font-weight: 500; color: var(--accent); margin-bottom: 2.6rem; }
+.card-code { display: inline-block; font-size: 1rem; font-weight: 500; color: var(--pink); margin-bottom: 2.6rem; }
 .card h3 { font-size: 1.2rem; margin-bottom: .8rem; }
 .card p { color: var(--ink-soft); font-size: .95rem; margin: 0; }
 
