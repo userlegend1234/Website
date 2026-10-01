@@ -166,13 +166,18 @@ p { margin: 0 0 1em; }
 .hero-fibers .f-cyan  { stroke: rgba(0, 190, 190, 0.22); stroke-width: 1; }
 /* a soft pulse of light travelling along the pink fiber */
 .hero-fibers .f-pulse {
-  stroke: rgba(var(--pink-rgb), 0.85); stroke-width: 2;
-  stroke-dasharray: 0.06 0.94;
-  animation: fiber-pulse 9s linear infinite;
-  filter: drop-shadow(0 0 3px rgba(var(--pink-rgb), 0.6));
+  stroke: rgba(var(--pink-rgb), 0.45); stroke-width: 1.6;
+  stroke-dasharray: 0.07 0.93;
+  animation: fiber-pulse 12s linear infinite;
+  filter: blur(0.6px) drop-shadow(0 0 2px rgba(var(--pink-rgb), 0.25));
 }
 @keyframes fiber-pulse { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 .hero-inner { position: relative; }
+
+/* the same fiber motif continues more quietly down the rest of the page */
+.fiber-bg {
+  background: url("images/fiber-lines.svg") 0 0 / 100% 1600px repeat-y;
+}
 .eyebrow {
   display: inline-flex; align-items: center; gap: .6em;
   font-family: var(--mono); font-size: .8rem; color: var(--ink-soft);
