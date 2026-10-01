@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OGURION – In-situ particle sensors for harsh industrial environments</title>
+  <meta name="description" content="OGURION is a Swiss BFH spin-off developing fiber-optic in-situ particle sensors for PVD, ALD and CVD vacuum coating systems.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="OGURION home">
+        <img src="images/logo.svg" alt="OGURION" width="176" height="32">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#mission">Mission</a>
+        <a href="#product">Product</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="btn btn-small">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <canvas class="hero-particles" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="eyebrow"><span class="dot"></span> Swiss BFH spin-off · In-situ particle sensing</p>
+        <h1>From <span class="muted">preventive</span> to <span class="accent">predictive</span> management of particles</h1>
+        <p class="lead">OGURION develops fiber-optic particle sensors that work directly inside harsh industrial environments – starting with PVD, ALD and CVD vacuum coating systems.</p>
+        <div class="hero-actions">
+          <a href="#product" class="btn">Discover the sensor</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <ul class="hero-facts">
+          <li><span class="mono">01</span> In-situ, real-time</li>
+          <li><span class="mono">02</span> Fiber-optic, no electronics in the chamber</li>
+          <li><span class="mono">03</span> Built for vacuum &amp; harsh processes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Mission ===== -->
+    <section class="section" id="mission">
+      <div class="container grid-2">
+        <div>
+          <p class="section-tag mono">// Mission</p>
+          <h2>Particles are the invisible yield killers of thin-film production.</h2>
+        </div>
+        <div class="prose">
+          <p>In vacuum coating processes, a single particle can ruin an optical layer, a semiconductor wafer or a medical implant. Today, contamination is mostly discovered after the fact – during inspection, when the damage is done. Chambers are cleaned on fixed schedules, whether they need it or not.</p>
+          <p>Our mission is to make particles visible where they originate: <strong>inside the process chamber, during the process</strong>. With continuous in-situ data, manufacturers can move from fixed preventive maintenance to predictive, data-driven particle management – reducing scrap, downtime and cost.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="stat-num">in-situ</span><span class="stat-label">Measurement directly in the chamber</span></div>
+            <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Continuous process monitoring</span></div>
+            <div class="stat"><span class="stat-num">CH</span><span class="stat-label">Developed in Switzerland</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Product / Exploded view ===== -->
+    <section class="product" id="product" aria-label="Product">
+      <div class="product-sticky">
+        <div class="container product-inner">
+
+          <!-- Left: exploded view -->
+          <div class="explode" aria-hidden="false">
+            <p class="section-tag mono">// Product · Exploded view</p>
+            <div class="explode-stage">
+              <!--
+                Each part: replace src with your CAD rendering (transparent PNG/SVG, same width recommended).
+                data-overlap: how much the part overlaps the part above when assembled (fraction of image width).
+                data-label-x: where the label line starts (fraction of image width, i.e. right edge of the visible part).
+              -->
+              <figure class="part" data-overlap="0" data-label-x="0.74">
+                <img src="images/sensor-01-window.svg" alt="Sapphire protective window">
+                <figcaption class="part-label"><span class="mono">01</span> Sapphire window</figcaption>
+              </figure>
+              <figure class="part" data-overlap="0.173" data-label-x="0.78">
+                <img src="images/sensor-02-optical-head.svg" alt="Optical measuring head">
+                <figcaption class="part-label"><span class="mono">02</span> Optical head</figcaption>
+              </figure>
+              <figure class="part" data-overlap="0.237" data-label-x="0.94">
+                <img src="images/sensor-03-flange.svg" alt="Vacuum flange">
+                <figcaption class="part-label"><span class="mono">03</span> Vacuum flange</figcaption>
+              </figure>
+              <figure class="part" data-overlap="0.22" data-label-x="0.72">
+                <img src="images/sensor-04-body.svg" alt="Sensor body">
+                <figcaption class="part-label"><span class="mono">04</span> Sensor body</figcaption>
+              </figure>
+              <figure class="part" data-overlap="0.13" data-label-x="0.66">
+                <img src="images/sensor-05-fiber.svg" alt="Fiber-optic connector and cable">
+                <figcaption class="part-label"><span class="mono">05</span> Fiber connector</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Right: explanatory steps -->
+          <div class="product-text">
+            <div class="steps">
+              <article class="step is-active">
+                <h3>One sensor.<br>Inside the process.</h3>
+                <p>The OGURION sensor is mounted directly on the process chamber via a standard vacuum flange. It detects particles in real time – during deposition, pump-down and venting.</p>
+              </article>
+              <article class="step">
+                <h3>Optical head &amp; sapphire window</h3>
+                <p>A robust sapphire window protects the optics against coating, heat and aggressive process gases. The optical head defines the measurement volume in the chamber.</p>
+              </article>
+              <article class="step">
+                <h3>Vacuum-ready flange</h3>
+                <p>Standard flange interfaces allow retrofitting into existing PVD, ALD and CVD systems without changing the chamber design.</p>
+              </article>
+              <article class="step">
+                <h3>Glass fiber instead of electronics</h3>
+                <p>Light is guided through optical fibers – no electronics in the chamber. The sensor is immune to plasma, RF fields and high temperatures.</p>
+              </article>
+              <article class="step">
+                <h3>Data for predictive maintenance</h3>
+                <p>The evaluation unit outside the chamber turns optical signals into particle counts and trends – the basis for predictive cleaning and maintenance.</p>
+              </article>
+            </div>
+            <div class="downloads">
+              <a href="docs/OGURION_Spec_Sheet.pdf" class="download" download>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+                Spec Sheet <span class="mono">PDF</span>
+              </a>
+              <a href="docs/OGURION_Brochure.pdf" class="download" download>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+                Brochure <span class="mono">PDF</span>
+              </a>
+            </div>
+            <div class="progress" aria-hidden="true"><span class="progress-bar"></span></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Solutions ===== -->
+    <section class="section" id="solutions">
+      <div class="container">
+        <p class="section-tag mono">// Solutions</p>
+        <h2 class="section-title">Built for the toughest coating processes</h2>
+        <div class="cards">
+          <article class="card">
+            <span class="card-code mono">PVD</span>
+            <h3>Physical Vapor Deposition</h3>
+            <p>Monitor particle generation from targets, shields and fixtures during sputtering and evaporation – and clean only when it is really needed.</p>
+          </article>
+          <article class="card">
+            <span class="card-code mono">ALD</span>
+            <h3>Atomic Layer Deposition</h3>
+            <p>Detect flaking and powder formation early in cyclic precursor processes where layers are only a few atoms thick.</p>
+          </article>
+          <article class="card">
+            <span class="card-code mono">CVD</span>
+            <h3>Chemical Vapor Deposition</h3>
+            <p>Withstands reactive gases and high temperatures to track gas-phase nucleation and wall deposits in real time.</p>
+          </article>
+          <article class="card">
+            <span class="card-code mono">+</span>
+            <h3>Other harsh environments</h3>
+            <p>Etching, vacuum handling, high-temperature or high-voltage processes – wherever conventional particle counters cannot go.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <p class="section-tag mono">// Current projects</p>
+        <h2 class="section-title">Innosuisse projects</h2>
+        <div class="projects">
+          <article class="project">
+            <div class="project-meta mono"><span class="badge">Innosuisse</span> Innovation project</div>
+            <h3>In-situ particle monitoring in industrial PVD systems</h3>
+            <p>Together with BFH and industrial partners, the sensor is validated in production-scale coating systems and prepared for series production.</p>
+          </article>
+          <article class="project">
+            <div class="project-meta mono"><span class="badge">Innosuisse</span> Start-up coaching</div>
+            <h3>From research prototype to market-ready product</h3>
+            <p>Coaching support for building the business model, market entry and first customer installations in the thin-film industry.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section class="section" id="team">
+      <div class="container">
+        <p class="section-tag mono">// Team</p>
+        <h2 class="section-title">Engineers, physicists and founders</h2>
+        <div class="team">
+          <!-- Replace names, roles and photos (e.g. images/team-1.jpg) -->
+          <article class="member">
+            <div class="avatar"><span>OG</span></div>
+            <h3>Name Surname</h3>
+            <p class="role mono">Co-Founder &amp; CEO</p>
+          </article>
+          <article class="member">
+            <div class="avatar"><span>OG</span></div>
+            <h3>Name Surname</h3>
+            <p class="role mono">Co-Founder &amp; CTO</p>
+          </article>
+          <article class="member">
+            <div class="avatar"><span>OG</span></div>
+            <h3>Name Surname</h3>
+            <p class="role mono">Optical Engineering</p>
+          </article>
+          <article class="member">
+            <div class="avatar"><span>BFH</span></div>
+            <h3>Name Surname</h3>
+            <p class="role mono">Scientific Advisor, BFH</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section section-alt" id="contact">
+      <div class="container grid-2">
+        <div>
+          <p class="section-tag mono">// Contact</p>
+          <h2>Let’s talk about particles in your process.</h2>
+          <p class="prose">Interested in a pilot installation, a demo or a research collaboration? Send us a message – we will get back to you shortly.</p>
+          <ul class="contact-list">
+            <li><span class="mono">E-mail</span><a href="mailto:info@ogurion.com">info@ogurion.com</a></li>
+            <li><span class="mono">Web</span><a href="https://www.ogurion.com">www.ogurion.com</a></li>
+            <li><span class="mono">Location</span>Switzerland</li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="privacy" required>
+            <span>I agree to the processing of my data according to the <a href="privacy.html">Privacy Policy</a>. *</span>
+          </label>
+          <button type="submit" class="btn">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="images/logo.svg" alt="OGURION" width="140" height="26">
+      <p class="mono">© <span id="year"></span> OGURION · Spin-off of Bern University of Applied Sciences (BFH)</p>
+      <nav>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="legal.html">Legal Notice</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
