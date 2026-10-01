@@ -11,7 +11,7 @@ Plain HTML, CSS and JavaScript, no frameworks and no build step.
 | `privacy.html`, `legal.html` | Privacy Policy and Legal Notice (fill in the `[…]` placeholders) |
 | `styles.css` | All styles (colors as CSS variables at the top) |
 | `script.js` | Exploded view, mobile menu, hero particles, contact form |
-| `images/` | Logo and sensor parts (placeholder SVGs) |
+| `images/` | Logo (`logo.png`, `favicon.png`) and sensor parts (placeholder SVGs) |
 | `docs/` | Put `OGURION_Spec_Sheet.pdf` and `OGURION_Brochure.pdf` here |
 
 ## Preview
@@ -35,3 +35,9 @@ To add or remove parts, also adjust `STEP_PARTS` in `script.js` (which parts are
 - Verify the Innosuisse project texts and contact details
 - Add the spec sheet and brochure PDFs to `docs/`
 - Fill in the Legal Notice / Privacy Policy placeholders
+
+## Brand color
+
+The accent color is the blue from the logo (`#01004C`). It is defined once at the top of `styles.css`
+as `--accent-rgb` and also used by the hero animation in `script.js`.
+The pink (`--pink-rgb`) and cyan (`--cyan-rgb`) from the logo highlight the particles crossing the measurement beam in the hero.

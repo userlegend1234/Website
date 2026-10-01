@@ -211,6 +211,13 @@
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W = 0, H = 0, dots = [], running = true;
+    // brand colors from the CSS variables in styles.css
+    var rootStyle = getComputedStyle(document.documentElement);
+    function cssRgb(name, fallback) { return (rootStyle.getPropertyValue(name) || fallback).trim(); }
+    var rgb = cssRgb('--accent-rgb', '1, 0, 76');
+    var HIGHLIGHTS = [cssRgb('--pink-rgb', '254, 96, 189'), cssRgb('--cyan-rgb', '0, 255, 251')];
+    function accent(a) { return 'rgba(' + rgb + ',' + a + ')'; }
+    function rgba(c, a) { return 'rgba(' + c + ',' + a + ')'; }
 
     function sizeCanvas() {
       W = canvas.clientWidth; H = canvas.clientHeight;
@@ -225,7 +232,9 @@
           r: Math.random() * 1.8 + 0.6,
           vx: (Math.random() - 0.5) * 0.15,
           vy: Math.random() * 0.25 + 0.05,
-          hot: Math.random() < 0.12
+          hot: Math.random() < 0.12,
+          hl: HIGHLIGHTS[i % 2],   // pink or cyan when crossing the beam
+          glow: 0                  // 1 while in the beam, then fades out
         });
       }
     }
@@ -238,9 +247,9 @@
       ctx.clearRect(0, 0, W, H);
 
       var grad = ctx.createLinearGradient(0, 0, W, 0);
-      grad.addColorStop(0, 'rgba(255,106,19,0)');
-      grad.addColorStop(0.5, 'rgba(255,106,19,0.22)');
-      grad.addColorStop(1, 'rgba(255,106,19,0)');
+      grad.addColorStop(0, accent(0));
+      grad.addColorStop(0.5, accent(0.3));
+      grad.addColorStop(1, accent(0));
       ctx.strokeStyle = grad;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -255,15 +264,28 @@
         if (d.x < -5) d.x = W + 5; else if (d.x > W + 5) d.x = -5;
 
         var near = Math.abs(d.y - beamY(d.x)) < 14;
+        d.glow = near ? 1 : Math.max(0, d.glow - 0.006);
+
+        // base particle
         ctx.beginPath();
-        ctx.arc(d.x, d.y, near ? d.r + 1.4 : d.r, 0, Math.PI * 2);
-        ctx.fillStyle = near || d.hot ? 'rgba(255,106,19,' + (near ? 0.95 : 0.6) + ')' : 'rgba(22,25,29,0.28)';
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = d.hot ? accent(0.6) : 'rgba(22,25,29,0.22)';
         ctx.fill();
-        if (near) {
+
+        // detected particle: pink / cyan highlight with afterglow
+        if (d.glow > 0) {
+          var g = d.glow;
           ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r + 7, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,106,19,0.12)';
+          ctx.arc(d.x, d.y, d.r + 9 * g, 0, Math.PI * 2);
+          ctx.fillStyle = rgba(d.hl, 0.22 * g);
           ctx.fill();
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.r + 1.6 * g, 0, Math.PI * 2);
+          ctx.fillStyle = rgba(d.hl, g);
+          ctx.fill();
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = accent(0.55 * g);  // thin blue ring keeps cyan visible on white
+          ctx.stroke();
         }
       }
       requestAnimationFrame(draw);
