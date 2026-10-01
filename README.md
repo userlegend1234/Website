@@ -47,3 +47,5 @@ A darker logo pink (`--pink`, readable as text) is used for numbers, section tag
 
 The page background is plain with a faint pink/cyan light. The hero shows fine glass-fiber lines
 (inline SVG `.hero-fibers` in `index.html`, styled in `styles.css`) with a slow light pulse on the pink fiber.
+Below the hero the same motif continues more quietly: `images/fiber-lines.svg` is tiled down the page
+(`.fiber-bg` in `styles.css`). Its colors are written into the SVG file itself.

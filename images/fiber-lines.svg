@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1600" preserveAspectRatio="none">
+  <!-- Subtle glass-fiber lines tiled down the page below the hero.
+       Colors: OGURION blue rgb(1,0,76), pink rgb(254,96,189), cyan. -->
+  <g fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke">
+    <path d="M-50 260 C 380 180, 660 380, 1060 230 S 1380 140, 1500 190" stroke="rgba(1,0,76,0.055)" stroke-width="1.1" vector-effect="non-scaling-stroke"/>
+    <path d="M-50 300 C 400 230, 690 420, 1090 270 S 1400 190, 1500 235" stroke="rgba(0,190,190,0.16)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    <path d="M-50 340 C 420 280, 720 460, 1120 310 S 1420 240, 1500 280" stroke="rgba(1,0,76,0.035)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+
+    <path d="M-50 1080 C 280 1000, 540 1200, 880 1040 S 1300 900, 1500 980" stroke="rgba(1,0,76,0.05)" stroke-width="1.1" vector-effect="non-scaling-stroke"/>
+    <path d="M-50 1120 C 300 1050, 580 1240, 920 1080 S 1320 950, 1500 1030" stroke="rgba(254,96,189,0.2)" stroke-width="1.1" vector-effect="non-scaling-stroke"/>
+    <path d="M-50 1160 C 320 1100, 620 1280, 960 1120 S 1340 1000, 1500 1080" stroke="rgba(1,0,76,0.035)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>
