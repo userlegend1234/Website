@@ -43,13 +43,12 @@ body {
   line-height: 1.6;
   color: var(--ink);
   background-color: var(--bg);
-  /* subtle particle dot matrix with soft brand-tinted light */
+  /* calm base: only soft brand-tinted light (fiber lines live in the hero) */
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(var(--accent-rgb), 0.13) 1px, transparent 1.4px),
     radial-gradient(ellipse 60% 45% at 100% 0%, rgba(var(--pink-rgb), 0.06), transparent 70%),
     radial-gradient(ellipse 55% 50% at 0% 100%, rgba(var(--cyan-rgb), 0.06), transparent 70%);
-  background-size: 26px 26px, 100% 100vh, 100% 100vh;
-  background-attachment: scroll, fixed, fixed;
+  background-size: 100% 100vh, 100% 100vh;
+  background-attachment: fixed, fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -152,6 +151,27 @@ p { margin: 0 0 1em; }
   overflow: hidden;
 }
 .hero-particles { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* glass-fiber lines behind the hero, fading out towards the next section */
+.hero-fibers {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+}
+.hero-fibers path { fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.hero-fibers .f-blue  { stroke: rgba(var(--accent-rgb), 0.09); stroke-width: 1.2; }
+.hero-fibers .f-faint { stroke: rgba(var(--accent-rgb), 0.05); stroke-width: 1; }
+.hero-fibers .f-pink  { stroke: rgba(var(--pink-rgb), 0.3); stroke-width: 1.2; }
+.hero-fibers .f-cyan  { stroke: rgba(0, 190, 190, 0.22); stroke-width: 1; }
+/* a soft pulse of light travelling along the pink fiber */
+.hero-fibers .f-pulse {
+  stroke: rgba(var(--pink-rgb), 0.85); stroke-width: 2;
+  stroke-dasharray: 0.06 0.94;
+  animation: fiber-pulse 9s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(var(--pink-rgb), 0.6));
+}
+@keyframes fiber-pulse { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 .hero-inner { position: relative; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: .6em;
@@ -475,4 +495,5 @@ h2 + .prose { margin-top: 1.4rem; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .step { transition: none; }
+  .hero-fibers .f-pulse { animation: none; opacity: 0; }
 }
