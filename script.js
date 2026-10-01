@@ -211,6 +211,9 @@
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W = 0, H = 0, dots = [], running = true;
+    // brand color from the CSS variable --accent-rgb
+    var rgb = (getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb') || '1, 0, 76').trim();
+    function accent(a) { return 'rgba(' + rgb + ',' + a + ')'; }
 
     function sizeCanvas() {
       W = canvas.clientWidth; H = canvas.clientHeight;
@@ -238,9 +241,9 @@
       ctx.clearRect(0, 0, W, H);
 
       var grad = ctx.createLinearGradient(0, 0, W, 0);
-      grad.addColorStop(0, 'rgba(255,106,19,0)');
-      grad.addColorStop(0.5, 'rgba(255,106,19,0.22)');
-      grad.addColorStop(1, 'rgba(255,106,19,0)');
+      grad.addColorStop(0, accent(0));
+      grad.addColorStop(0.5, accent(0.3));
+      grad.addColorStop(1, accent(0));
       ctx.strokeStyle = grad;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -257,12 +260,12 @@
         var near = Math.abs(d.y - beamY(d.x)) < 14;
         ctx.beginPath();
         ctx.arc(d.x, d.y, near ? d.r + 1.4 : d.r, 0, Math.PI * 2);
-        ctx.fillStyle = near || d.hot ? 'rgba(255,106,19,' + (near ? 0.95 : 0.6) + ')' : 'rgba(22,25,29,0.28)';
+        ctx.fillStyle = near || d.hot ? accent(near ? 0.95 : 0.6) : 'rgba(22,25,29,0.22)';
         ctx.fill();
         if (near) {
           ctx.beginPath();
           ctx.arc(d.x, d.y, d.r + 7, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,106,19,0.12)';
+          ctx.fillStyle = accent(0.1);
           ctx.fill();
         }
       }

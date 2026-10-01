@@ -12,9 +12,11 @@
   --gray-light: #d7dadf;
   --line: rgba(22, 25, 29, 0.08);
   --line-strong: rgba(22, 25, 29, 0.14);
-  --accent: #ff6a13;
-  --accent-dark: #e05500;
-  --accent-soft: rgba(255, 106, 19, 0.1);
+  /* brand color from the OGURION logo – change it here only */
+  --accent-rgb: 1, 0, 76;                      /* #01004C */
+  --accent: rgb(var(--accent-rgb));
+  --accent-hover: #2b2a9e;
+  --accent-soft: rgba(var(--accent-rgb), 0.08);
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -69,16 +71,16 @@ p { margin: 0 0 1em; }
   align-items: center;
   gap: .5em;
   padding: .85em 1.5em;
-  background: var(--ink);
+  background: var(--accent);
   color: #fff;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent);
   border-radius: var(--radius);
   font: 600 .95rem/1 var(--font);
   text-decoration: none;
   cursor: pointer;
   transition: background .2s, border-color .2s, color .2s, transform .2s;
 }
-.btn:hover { background: var(--accent); border-color: var(--accent); }
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 .btn:active { transform: translateY(1px); }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
 .btn-ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
@@ -98,7 +100,7 @@ p { margin: 0 0 1em; }
 }
 .site-header.scrolled { border-bottom-color: var(--line-strong); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.logo img { height: 30px; width: auto; }
+.logo img { height: 34px; width: auto; }
 
 .site-nav { display: flex; align-items: center; gap: 2rem; }
 .site-nav a:not(.btn) {
@@ -295,7 +297,7 @@ h2 + .prose { margin-top: 1.4rem; }
   padding-bottom: 3px;
   transition: color .2s;
 }
-.download:hover { color: var(--accent-dark); }
+.download:hover { color: var(--accent-hover); }
 .download svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .download .mono { color: var(--gray); font-weight: 400; }
 
@@ -328,7 +330,7 @@ h2 + .prose { margin-top: 1.4rem; }
   padding: 2rem;
 }
 .project-meta { display: flex; align-items: center; gap: .8em; color: var(--ink-soft); margin-bottom: 1.2rem; }
-.badge { background: var(--accent-soft); color: var(--accent-dark); padding: .3em .7em; border-radius: 2px; }
+.badge { background: var(--accent-soft); color: var(--accent); padding: .3em .7em; border-radius: 2px; }
 .project h3 { font-size: 1.35rem; margin-bottom: .8rem; }
 .project p { color: var(--ink-soft); margin: 0; }
 
@@ -337,7 +339,7 @@ h2 + .prose { margin-top: 1.4rem; }
 .avatar {
   aspect-ratio: 4 / 5;
   background:
-    linear-gradient(135deg, rgba(255,106,19,.08), transparent 60%),
+    linear-gradient(135deg, rgba(var(--accent-rgb), .07), transparent 60%),
     var(--bg-alt);
   border: 1px solid var(--line-strong);
   display: grid; place-items: center;
