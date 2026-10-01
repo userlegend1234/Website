@@ -17,6 +17,9 @@
   --accent: rgb(var(--accent-rgb));
   --accent-hover: #2b2a9e;
   --accent-soft: rgba(var(--accent-rgb), 0.08);
+  /* logo highlight colors – used sparingly (hero animation) */
+  --pink-rgb: 254, 96, 189;                    /* #FE60BD */
+  --cyan-rgb: 0, 255, 251;                     /* #00FFFB */
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;

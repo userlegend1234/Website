@@ -40,3 +40,4 @@ To add or remove parts, also adjust `STEP_PARTS` in `script.js` (which parts are
 
 The accent color is the blue from the logo (`#01004C`). It is defined once at the top of `styles.css`
 as `--accent-rgb` and also used by the hero animation in `script.js`.
+The pink (`--pink-rgb`) and cyan (`--cyan-rgb`) from the logo highlight the particles crossing the measurement beam in the hero.
