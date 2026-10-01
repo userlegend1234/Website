@@ -42,3 +42,8 @@ The accent color is the blue from the logo (`#01004C`). It is defined once at th
 as `--accent-rgb` and also used by the hero animation in `script.js`.
 The pink (`--pink-rgb`) and cyan (`--cyan-rgb`) from the logo highlight the particles crossing the measurement beam in the hero.
 A darker logo pink (`--pink`, readable as text) is used for numbers, section tags and the solution codes.
+
+## Background
+
+The page background is plain with a faint pink/cyan light. The hero shows fine glass-fiber lines
+(inline SVG `.hero-fibers` in `index.html`, styled in `styles.css`) with a slow light pulse on the pink fiber.
