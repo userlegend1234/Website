@@ -49,3 +49,9 @@ The page background is plain with a faint pink/cyan light. The hero shows fine g
 (inline SVG `.hero-fibers` in `index.html`, styled in `styles.css`) with a slow light pulse on the pink fiber.
 Below the hero the same motif continues more quietly: `images/fiber-lines.svg` is tiled down the page
 (`.fiber-bg` in `styles.css`). Its colors are written into the SVG file itself.
+
+### Grid variant for comparison
+
+Add `?bg=grid` to the URL (e.g. `https://userlegend1234.github.io/Website/?bg=grid`) to see the page
+with the fine technical grid instead of the fiber lines. Everything else stays the same.
+To remove the variant later, delete the `.bg-grid` rules in `styles.css` and the small script in the `<head>` of the HTML files.
