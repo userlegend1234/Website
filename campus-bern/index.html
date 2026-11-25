@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Bern – Events pro Departement</title>
+  <meta name="description" content="Alle Events für Studierende in Bern, sortiert nach Departement.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand"><span class="brand-mark">CB</span> Campus Bern</a>
+    <button class="btn btn-primary" id="openSubmit" type="button">+ Event einreichen</button>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="hero">
+      <h1 id="pageTitle">Was läuft an deinem Departement?</h1>
+      <p id="pageLead">Alle Events für Studierende in Bern, an einem Ort. Wähle dein Departement oder stöbere durch alles.</p>
+    </section>
+
+    <nav class="dept-grid" id="deptGrid" aria-label="Departemente"></nav>
+
+    <section class="toolbar" aria-label="Filter">
+      <input type="search" id="search" placeholder="Suchen: Titel, Ort, Organisator…" aria-label="Events durchsuchen">
+      <select id="range" aria-label="Zeitraum">
+        <option value="all">Alle kommenden</option>
+        <option value="today">Heute</option>
+        <option value="week">Nächste 7 Tage</option>
+        <option value="month">Nächste 30 Tage</option>
+      </select>
+      <div class="chips" id="catChips" role="group" aria-label="Kategorien"></div>
+    </section>
+
+    <p class="result-count" id="resultCount" aria-live="polite"></p>
+    <section id="eventList" class="event-list"></section>
+  </main>
+
+  <footer class="footer">
+    Prototyp mit Beispieldaten · Keine offizielle Seite der BFH
+  </footer>
+
+  <!-- Event-Details -->
+  <dialog id="detail" class="modal">
+    <form method="dialog"><button class="close" aria-label="Schliessen">×</button></form>
+    <div id="detailBody"></div>
+  </dialog>
+
+  <!-- Event einreichen -->
+  <dialog id="submit" class="modal">
+    <form method="dialog"><button class="close" aria-label="Schliessen">×</button></form>
+    <h2>Event einreichen</h2>
+    <p class="muted">Eingereichte Events werden vor der Veröffentlichung geprüft. (Im Prototyp nur in deinem Browser gespeichert.)</p>
+    <form id="submitForm" class="form">
+      <label>Titel<input name="title" required maxlength="100"></label>
+      <div class="row">
+        <label>Departement<select name="dept" id="formDept" required></select></label>
+        <label>Kategorie<select name="cat" id="formCat" required></select></label>
+      </div>
+      <div class="row">
+        <label>Datum<input type="date" name="date" required></label>
+        <label>Von<input type="time" name="start" required></label>
+        <label>Bis<input type="time" name="end"></label>
+      </div>
+      <label>Ort<input name="location" required maxlength="120"></label>
+      <div class="row">
+        <label>Organisiert von<input name="organizer" required maxlength="80"></label>
+        <label>Preis<input name="price" placeholder="gratis" maxlength="30"></label>
+      </div>
+      <label>Beschreibung<textarea name="desc" rows="4" maxlength="800"></textarea></label>
+      <button class="btn btn-primary" type="submit">Einreichen</button>
+    </form>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
